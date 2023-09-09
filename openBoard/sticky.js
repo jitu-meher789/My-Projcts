@@ -13,6 +13,7 @@ sticky.addEventListener("click", function (e) {
     let close = sticky.querySelector(".close");
     let textArea = sticky.querySelector("textarea");
     let isClosed = false;
+    let a = 7;
     minimize.addEventListener("click", function (e) {
         if (isClosed == false) {
             textArea.style.display = "none";
@@ -25,3 +26,4 @@ sticky.addEventListener("click", function (e) {
         sticky.remove();
     })
 })
+
