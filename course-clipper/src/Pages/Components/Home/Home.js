@@ -1,4 +1,5 @@
 import React from "react";
+// import "../Home/Home.css";
 import "../Home/Home.css";
 
 import { Drawer, Box, Typography, TextField } from "@mui/material";
@@ -27,10 +28,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 
-
-import Rating from '@mui/material/Rating';
-
-
+import Rating from "@mui/material/Rating";
 
 function Home() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -52,7 +50,7 @@ function Home() {
           "Blogs",
           "Privacy Policy",
           "Contact Us",
-          "Terms & Conditions"
+          "Terms & Conditions",
         ].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
@@ -82,7 +80,7 @@ function Home() {
   );
 
   return (
-    <div>
+    <div style={{width:"100%", height:"100%"}}>
       <div className="home-top-bar">
         <div className="home-top-bar-section logo-section">courseClipper</div>
 
@@ -111,30 +109,12 @@ function Home() {
         </div>
 
         <div className="all-reviews">
-          <div className="single-reviews">
+          <div className="single-reviews blur-div">
             <div className="reviews-title"> Vance- NeoBank for NRIs</div>
 
             <div className="reviews-stats">
               <div className="reviews-stars">
-                <span>
-                  <StarIcon className="stars-8" />
-                </span>
-
-                <span>
-                  <StarIcon className="stars-8" />
-                </span>
-
-                <span>
-                  <StarIcon className="stars-8" />
-                </span>
-
-                <span>
-                  <StarIcon className="stars-8" />
-                </span>
-
-                <span>
-                  <StarIcon className="stars-1" />
-                </span>
+                <Rating name="read-only" value={value} readOnly style={{color:"green"}}/>
               </div>
               <div className="reviews-rat">4.7</div>{" "}
               <span> &nbsp; | &nbsp; </span>
@@ -153,29 +133,7 @@ function Home() {
                   <AccountCircleIcon />
                 </span>
 
-                <span>
-                  <div className="reviews-stars">
-                    <span>
-                      <StarIcon className="stars-10" />
-                    </span>
-
-                    <span>
-                      <StarIcon className="stars-1" />
-                    </span>
-
-                    <span>
-                      <StarIcon className="stars-1" />
-                    </span>
-
-                    <span>
-                      <StarIcon className="stars-1" />
-                    </span>
-
-                    <span>
-                      <StarIcon className="stars-1" />
-                    </span>
-                  </div>
-                </span>
+                <Rating name="read-only" value={3} readOnly style={{color:"green"}}/>
               </div>
 
               <div className="reviews-text">
@@ -191,25 +149,7 @@ function Home() {
 
             <div className="reviews-stats">
               <div className="reviews-stars">
-                <span>
-                  <StarIcon className="stars-8" />
-                </span>
-
-                <span>
-                  <StarIcon className="stars-8" />
-                </span>
-
-                <span>
-                  <StarIcon className="stars-8" />
-                </span>
-
-                <span>
-                  <StarIcon className="stars-8" />
-                </span>
-
-                <span>
-                  <StarIcon className="stars-1" />
-                </span>
+                <Rating name="read-only" value={value} readOnly style={{color:"green"}}/>
               </div>
               <div className="reviews-rat">4.7</div>{" "}
               <span> &nbsp; | &nbsp; </span>
@@ -228,29 +168,7 @@ function Home() {
                   <AccountCircleIcon />
                 </span>
 
-                <span>
-                  <div className="reviews-stars">
-                    <span>
-                      <StarIcon className="stars-10" />
-                    </span>
-
-                    <span>
-                      <StarIcon className="stars-1" />
-                    </span>
-
-                    <span>
-                      <StarIcon className="stars-1" />
-                    </span>
-
-                    <span>
-                      <StarIcon className="stars-1" />
-                    </span>
-
-                    <span>
-                      <StarIcon className="stars-1" />
-                    </span>
-                  </div>
-                </span>
+                <Rating name="read-only" value={3} readOnly style={{color:"green"}}/>
               </div>
 
               <div className="reviews-text">
@@ -261,59 +179,33 @@ function Home() {
             </div>
           </div>
 
-          <div className="single-reviews">
+          <div className="single-reviews blur-div">
             <div className="reviews-title"> Vance- NeoBank for NRIs</div>
+
             <div className="reviews-stats">
               <div className="reviews-stars">
-                <span>
-                  <StarIcon className="stars-8" />
-                </span>
-                <span>
-                  <StarIcon className="stars-8" />
-                </span>
-                <span>
-                  <StarIcon className="stars-8" />
-                </span>
-                <span>
-                  <StarIcon className="stars-8" />
-                </span>
-                <span>
-                  <StarIcon className="stars-1" />
-                </span>
+                <Rating name="read-only" value={value} readOnly style={{color:"green"}}/>
               </div>
               <div className="reviews-rat">4.7</div>{" "}
               <span> &nbsp; | &nbsp; </span>
               <div className="reviews-count">75 reviews</div>
             </div>
+
             <div className="review-text1">
               Monery Transfer Service - Investment
             </div>
+
             <div className="small-reviews">
               <div className="times">3 days</div>
+
               <div className="reviews-admin">
                 <span>
                   <AccountCircleIcon />
                 </span>
-                <span>
-                  <div className="reviews-stars">
-                    <span>
-                      <StarIcon className="stars-10" />
-                    </span>
-                    <span>
-                      <StarIcon className="stars-1" />
-                    </span>
-                    <span>
-                      <StarIcon className="stars-1" />
-                    </span>
-                    <span>
-                      <StarIcon className="stars-1" />
-                    </span>
-                    <span>
-                      <StarIcon className="stars-1" />
-                    </span>
-                  </div>
-                </span>
+
+                <Rating name="read-only" value={3} readOnly style={{color:"green"}}/>
               </div>
+
               <div className="reviews-text">
                 <span>
                   First transfer and they made me mad, worse service and{" "}
@@ -321,10 +213,9 @@ function Home() {
               </div>
             </div>
           </div>
+          
         </div>
       </div>
-
-
 
       {/* drawer */}
       <Drawer
@@ -337,8 +228,6 @@ function Home() {
         </Box>
       </Drawer>
 
-      65a77131961c4544acc411f86cea6e91a9955c5d
-
       {/* Dialog box */}
       <Dialog
         open={dialoglOpen}
@@ -347,50 +236,96 @@ function Home() {
         aria-describedby="modal-modal-description"
       >
         <Box className="dialog-box">
-            <div className="main-div-dialog">
+          <div className="main-div-dialog">
+            <Box className="dialog-sub-box" style={{ lineHeight: "0" }}>
+              <h4>Rate Your Recent Experience</h4>
+              <Rating
+                name="simple-controlled"
+                value={value}
+                onChange={(event, newValue) => {
+                  setValue(newValue);
+                }}
+              />
+              <h4>Tell Us More About Your Exerience</h4>
+            </Box>
 
-                  <Box className="dialog-sub-box" style={{lineHeight:"0"}}>
-                    <h4>Rate Your Recent Experience</h4>
-                    <Rating name="simple-controlled" value={value} onChange={(event, newValue) => {setValue(newValue);}}/>
-                    <h4>Tell Us More About Your Exerience</h4>
-                  </Box>
+            <Box className="dialog-sub-box" style={{ lineHeight: "0" }}>
+              <h4>
+                <a href="">Read Our Guidelines for Reviewers</a>
+              </h4>
+              <textarea name="" id=""></textarea>
+              <h4>
+                <a href="">How to write a useful review</a>
+              </h4>
+            </Box>
 
-                  <Box className="dialog-sub-box" style={{lineHeight:"0"}}>
-                    <h4><a href="">Read Our Guidelines for Reviewers</a></h4>
-                    <textarea name="" id=""></textarea>
-                    <h4><a href="">How to write a useful review</a></h4>
-                  </Box>
+            <Box className="dialog-sub-box">
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <label htmlFor="course-name">Enter Your Course Name</label>
+                <input
+                  type="text"
+                  id="course-name"
+                  style={{
+                    width: "325px",
+                    height: "35px",
+                    borderRadius: "5px",
+                    border: "1px solid grey",
+                  }}
+                />
+              </div>
 
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <label htmlFor="platform-name">Give your platform name</label>
+                <input
+                  type="text"
+                  id="platform-name"
+                  style={{
+                    width: "325px",
+                    height: "35px",
+                    borderRadius: "5px",
+                    border: "1px solid grey",
+                  }}
+                />
+              </div>
 
-                  <Box className="dialog-sub-box">
-                      <div style={{display:"flex", flexDirection:"column"}}>
-                          <label htmlFor="course-name">Enter Your Course Name</label>
-                          <input type="text" id="course-name" style={{width:"300px", height:"25px", borderRadius:"5px", border:"1px solid grey"}}/>
-                      </div>
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <label htmlFor="course-url">Enter Course URL</label>
+                <input
+                  type="url"
+                  id="course-url"
+                  style={{
+                    width: "325px",
+                    height: "35px",
+                    borderRadius: "5px",
+                    border: "1px solid grey",
+                  }}
+                />
+              </div>
 
-                      <div style={{display:"flex", flexDirection:"column"}}>
-                          <label htmlFor="platform-name">Give your platform name</label>
-                          <input type="text" id="platform-name" style={{width:"300px", height:"25px", borderRadius:"5px", border:"1px solid grey"}}/>
-                      </div>
-
-                      <div style={{display:"flex", flexDirection:"column"}}>
-                          <label htmlFor="course-url">Enter Course URL</label>
-                          <input type="url" id="course-url" style={{width:"300px", height:"25px", borderRadius:"5px", border:"1px solid grey"}}/>
-                      </div>
-
-                      <div style={{display:"flex", flexDirection:"column"}}>
-                          <label htmlFor="purchase-date">Enter purchased date</label>
-                          <input type="date" id="purchase-date" style={{width:"300px", height:"25px", borderRadius:"5px", border:"1px solid grey"}}/>
-                      </div>
-                  </Box>
-                  <div style={{margin:"29px 120px 0px"}}>
-                      <Button
-                        onClick={handleClose}
-                        variant="contained" sx={{backgroundColor: "rgb(9, 143, 96)", width:"100px"}}
-                      >
-                      Save</Button>
-                  </div>
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <label htmlFor="purchase-date">Enter purchased date</label>
+                <input
+                  type="date"
+                  id="purchase-date"
+                  style={{
+                    width: "325px",
+                    height: "35px",
+                    borderRadius: "5px",
+                    border: "1px solid grey",
+                  }}
+                />
+              </div>
+            </Box>
+            <div style={{ margin: "29px 120px 0px" }}>
+              <Button
+                onClick={handleClose}
+                variant="contained"
+                sx={{ backgroundColor: "rgb(9, 143, 96)", width: "100px" }}
+              >
+                Save
+              </Button>
             </div>
+          </div>
         </Box>
       </Dialog>
     </div>
