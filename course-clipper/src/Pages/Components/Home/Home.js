@@ -328,6 +328,7 @@ function Home() {
           </div>
         </Box>
       </Dialog>
+      
     </div>
   );
 }

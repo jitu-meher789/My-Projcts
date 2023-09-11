@@ -4,15 +4,19 @@ import Blog from "./Pages/Components/Blog/Blog";
 import Review from "./Pages/Components/Reviews/Reviews";
 import Comparison from "./Pages/Components/Comparison/Comparison";
 import Privacy from "./Pages/Components/Privacy/Privacy";
+import Term from "./Pages/Components/Term/Term";
+import About from "./Pages/Components/About/About";
 
 function App() {
   return (
-    // <Home />
+    <Home />
     // <Contact/>
     // <Blog />
     // <Review />
     // <Comparison />
-    <Privacy/>
+    // <Privacy/>
+    // <Term />
+    // <About />
   );
 }
 
