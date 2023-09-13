@@ -11,7 +11,7 @@ const About = () => {
         </div>
         <div className="about-text">
             <h2>About Us</h2>
-            <p>
+            <p style={{padding:"0px 100px 0px 100px", fontSize:"1.6rem"}}>
                 Welcome to CourseClipper, the ultimate destination for discerning learners and professionals
                 seeking the ideal educational experience. Our mission is to provide a platform where students and
                 professionals can find unbiased and informative reviews of various courses from different online
@@ -26,7 +26,8 @@ const About = () => {
             />
           </div>
           <div className="text-box">
-            <p>In this dynamic realm of online education, the multitude of options can often leave you feeling
+            <p>
+            <span className="strong-text">In this</span> dynamic realm of online education, the multitude of options can often leave you feeling
                 lost amidst a sea of choices. With prominent platforms such as Coursera, Pluralsight, Alison,
                 Khan Academy, Codecademy, FutureLearn, edX, Udacity, Skillshare, Educative, Cloud Guru,
                 Digital Cloud Training, and Learn.Cantrill and many more clamoring for your attention, making
@@ -40,8 +41,8 @@ const About = () => {
 
         <div className="about-img-text">
           <div className="text-box">
-            <p>
-                Gone are the days of tirelessly scouring the internet for elusive course reviews or blindly
+            <p id="p-text">
+            <span className="strong-text">Gone are </span>the days of tirelessly scouring the internet for elusive course reviews or blindly
                 following recommendations. Our platform is your trusted companion, streamlining your
                 decision-making process and saving you precious time and resources.
                 CourseClipper is more than just a review platform; it's a sanctuary of trust and collaboration. We
@@ -67,7 +68,7 @@ const About = () => {
           </div>
           <div className="text-box">
             <p>
-                By utilizing CourseClipper, you not only gain access to rich insights that aid in choosing the
+                <span className="strong-text">By utilizing</span> CourseClipper, you not only gain access to rich insights that aid in choosing the
                 perfect course but also contribute to a collective pool of knowledge. The more students and
                 professionals engage with our platform and share their valuable opinions, the more profound our
                 insights become. Together, we elevate the standards of online education worldwide. We are

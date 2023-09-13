@@ -6,10 +6,11 @@ import Comparison from "./Pages/Components/Comparison/Comparison";
 import Privacy from "./Pages/Components/Privacy/Privacy";
 import Term from "./Pages/Components/Term/Term";
 import About from "./Pages/Components/About/About";
+import Admin from "./Pages/Components/Admin/Admin";
 
 function App() {
   return (
-    <Home />
+    // <Home />
     // <Contact/>
     // <Blog />
     // <Review />
@@ -17,6 +18,7 @@ function App() {
     // <Privacy/>
     // <Term />
     // <About />
+    <Admin />
   );
 }
 
