@@ -1,0 +1,56 @@
+.about-main {
+    width: 80%;
+
+    background-color: rgb(212, 213, 213);
+    margin: auto;
+}
+.about-sub-div img {
+    width: 100%;
+    /* border: 1px solid black; */
+
+}
+
+.about-img-text {
+    /* background-color: rebeccapurple;
+    border: 1px solid black; */
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+
+}
+.img-box {
+    /* background-color: rgb(194, 165, 221);
+    border: 1px solid black; */
+    padding: 30px;
+
+
+}
+
+.text-box {
+    /* background-color: cadetblue;
+    border: 1px solid black; */
+    padding: 30px;
+
+
+}
+.about-text {
+    /* background-color: chartreuse;
+    border: 1px solid black; */
+    text-align: center;
+    
+}
+.text-box p {
+    text-align: end;
+    font-size: 1.2rem;
+}
+
+#p-text {
+    text-align: start;
+}
+
+.strong-text {
+    font-size: 2rem;
+    color: #0bb980;
+    font-weight: bolder;
+}
+
