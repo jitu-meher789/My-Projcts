@@ -9,14 +9,14 @@ import About from "./Pages/Components/About/About";
 
 function App() {
   return (
-    <Home />
+    // <Home />
     // <Contact/>
     // <Blog />
     // <Review />
     // <Comparison />
     // <Privacy/>
     // <Term />
-    // <About />
+    <About />
   );
 }
 
