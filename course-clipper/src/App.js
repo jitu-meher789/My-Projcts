@@ -16,9 +16,9 @@ function App() {
     // <Review />
     // <Comparison />
     // <Privacy/>
-    // <Term />
+    <Term />
 
-    <About />
+    // <About />
     // <Admin />
   );
 }
