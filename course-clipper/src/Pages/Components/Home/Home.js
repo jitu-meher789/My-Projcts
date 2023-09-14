@@ -20,7 +20,7 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 
-import Modal from "@mui/material/Modal";
+
 
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -217,6 +217,8 @@ function Home() {
         </div>
       </div>
 
+
+
       {/* drawer */}
       <Drawer
         anchor="left"
@@ -227,6 +229,8 @@ function Home() {
           {list()}
         </Box>
       </Drawer>
+
+
 
       {/* Dialog box */}
       <Dialog
