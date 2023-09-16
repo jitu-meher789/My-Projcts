@@ -33,9 +33,9 @@ const Admin = () => {
 
 
 
-  const [isLogout, setIsLogOut] = React.useState(false);
-  const handleOpenLogoutBox = setIsLogOut(true);
-  const handleCloseLogoutBox = setIsLogOut(false);
+  // const [isLogout, setIsLogOut] = React.useState(false);
+  // const handleOpenLogoutBox = setIsLogOut(true);
+  // const handleCloseLogoutBox = setIsLogOut(false);
 
 
   const [ratingValue, setRatingValue] = React.useState(2);
@@ -46,7 +46,8 @@ const Admin = () => {
         <div className="panel-div">
           <div className="log-btn-dv">
             {" "}
-            <Button onClick={() => setIsLogOut(true)}>LOGOUT</Button>{" "}
+            <Button >LOGOUT</Button>
+            {/* onClick={() => setIsLogOut(true)} */}
           </div>
           <div className="adm-text-div">
             <h3>ADMIN PANEL</h3>
@@ -262,8 +263,8 @@ const Admin = () => {
 
        {/* logout  Dialog*/}
       <Dialog
-        open={isLogout}
-        onClose={handleCloseLogoutBox}
+        // open={isLogout}
+        // onClose={handleCloseLogoutBox}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -274,7 +275,7 @@ const Admin = () => {
             </Typography>
             <div>
               <Button
-                onClick={handleCloseLogoutBox}
+                // onClick={handleCloseLogoutBox}
                 variant="outlined"
                 sx={{
                   backgroundColor: "#ffff",
@@ -286,7 +287,7 @@ const Admin = () => {
                 Cancel
               </Button>
               <Button
-                onClick={handleCloseLogoutBox}
+                // onClick={handleCloseLogoutBox}
                 variant="contained"
                 sx={{ backgroundColor: "red", width: "50px" }}
               >
