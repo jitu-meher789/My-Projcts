@@ -28,7 +28,7 @@ const Comparison = () => {
                 action=""
                 style={{ maxWidth: "320px" }}
               >
-                <input type="text" placeholder="Search Course..." name="search2" />
+                <input type="text" placeholder="Search Course..." name="search2"  style={{paddingLeft:"15px"}}/>
                 {/* <button type="submit">
                   Search
                 </button> */}

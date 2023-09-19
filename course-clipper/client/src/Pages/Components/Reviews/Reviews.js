@@ -64,7 +64,7 @@ const Reviews = () => {
                                 <div className="rev-cust-cont1">
                                     <span>{item.username}</span>
                                     <span>reviewed</span>
-                                    <span>{item.courseName}</span>
+                                    <span>{item.platformName}</span>
                                 </div>
                                 <div className="rev-content1">
                                     <p>
