@@ -50,13 +50,13 @@ const Admin = () => {
             {/* onClick={() => setIsLogOut(true)} */}
           </div>
           <div className="adm-text-div">
-            <h3>ADMIN PANEL</h3>
+            <h3 style={{textAlign:"center"}}>ADMIN PANEL</h3>
           </div>
           <div className="adm-date-div">
             <input type="date" />
           </div>
         </div>
-        <Divider />
+        <Divider style={{marginTop:"15px"}} />
         <div className="rev-admin-div">
           <div className="rev-content-ad">
             <div className="rev-icon-star">
@@ -69,12 +69,12 @@ const Admin = () => {
               />
             </div>
             <div className="rev-cust-cont1-ad">
-              <span>Maikon Lima</span>
-              <span>reviewed</span>
-              <span>Freecash.com</span>
+              <span style={{fontWeight:"bold", fontSize:"12px", marginRight:"5px"}}>Maikon Lima</span>
+              <span style={{fontSize:"12px", marginRight:"5px"}}>reviewed</span>
+              <span style={{fontWeight:"bold", fontSize:"12px", marginRight:"5px"}}>Freecash.com</span>
             </div>
             <div className="rev-content1-ad">
-              <p>
+              <p style={{fontSize:"14px"}}>
                 "Freecash really does provide opportunities for us to make extra
                 income. And you really get paid, i hope it stays that ways!"
               </p>
@@ -82,16 +82,193 @@ const Admin = () => {
             <div>
               <Button id="add-btn" 
               onClick={() => setIsUpdate(true)}
+              variant="outlined"
               >
                 <AddLinkIcon style={{ fontSize: "1.3rem" }} />
               </Button>
-              <Button id="del-btn" onClick={() => setIsDelete(true)}>
+              <Button id="del-btn" onClick={() => setIsDelete(true)} variant="outlined">
+                <DeleteOutlineIcon style={{ fontSize: "1.3rem" }} />
+              </Button>
+            </div>
+          </div>
+
+          <div className="rev-content-ad">
+            <div className="rev-icon-star">
+              <AccountCircleIcon />
+              <Rating
+                name="read-only"
+                value={3}
+                readOnly
+                style={{ color: "green" }}
+              />
+            </div>
+            <div className="rev-cust-cont1-ad">
+              <span style={{fontWeight:"bold", fontSize:"12px", marginRight:"5px"}}>Maikon Lima</span>
+              <span style={{fontSize:"12px", marginRight:"5px"}}>reviewed</span>
+              <span style={{fontWeight:"bold", fontSize:"12px", marginRight:"5px"}}>Freecash.com</span>
+            </div>
+            <div className="rev-content1-ad">
+              <p style={{fontSize:"14px"}}>
+                "Freecash really does provide opportunities for us to make extra
+                income. And you really get paid, i hope it stays that ways!"
+              </p>
+            </div>
+            <div>
+              <Button id="add-btn" 
+              onClick={() => setIsUpdate(true)}
+              variant="outlined"
+              >
+                <AddLinkIcon style={{ fontSize: "1.3rem" }} />
+              </Button>
+              <Button id="del-btn" onClick={() => setIsDelete(true)} variant="outlined">
+                <DeleteOutlineIcon style={{ fontSize: "1.3rem" }} />
+              </Button>
+            </div>
+          </div>
+          
+          <div className="rev-content-ad">
+            <div className="rev-icon-star">
+              <AccountCircleIcon />
+              <Rating
+                name="read-only"
+                value={3}
+                readOnly
+                style={{ color: "green" }}
+              />
+            </div>
+            <div className="rev-cust-cont1-ad">
+              <span style={{fontWeight:"bold", fontSize:"12px", marginRight:"5px"}}>Maikon Lima</span>
+              <span style={{fontSize:"12px", marginRight:"5px"}}>reviewed</span>
+              <span style={{fontWeight:"bold", fontSize:"12px", marginRight:"5px"}}>Freecash.com</span>
+            </div>
+            <div className="rev-content1-ad">
+              <p style={{fontSize:"14px"}}>
+                "Freecash really does provide opportunities for us to make extra
+                income. And you really get paid, i hope it stays that ways!"
+              </p>
+            </div>
+            <div>
+              <Button id="add-btn" 
+              onClick={() => setIsUpdate(true)}
+              variant="outlined"
+              >
+                <AddLinkIcon style={{ fontSize: "1.3rem" }} />
+              </Button>
+              <Button id="del-btn" onClick={() => setIsDelete(true)} variant="outlined">
+                <DeleteOutlineIcon style={{ fontSize: "1.3rem" }} />
+              </Button>
+            </div>
+          </div>
+          
+          <div className="rev-content-ad">
+            <div className="rev-icon-star">
+              <AccountCircleIcon />
+              <Rating
+                name="read-only"
+                value={3}
+                readOnly
+                style={{ color: "green" }}
+              />
+            </div>
+            <div className="rev-cust-cont1-ad">
+              <span style={{fontWeight:"bold", fontSize:"12px", marginRight:"5px"}}>Maikon Lima</span>
+              <span style={{fontSize:"12px", marginRight:"5px"}}>reviewed</span>
+              <span style={{fontWeight:"bold", fontSize:"12px", marginRight:"5px"}}>Freecash.com</span>
+            </div>
+            <div className="rev-content1-ad">
+              <p style={{fontSize:"14px"}}>
+                "Freecash really does provide opportunities for us to make extra
+                income. And you really get paid, i hope it stays that ways!"
+              </p>
+            </div>
+            <div>
+              <Button id="add-btn" 
+              onClick={() => setIsUpdate(true)}
+              variant="outlined"
+              >
+                <AddLinkIcon style={{ fontSize: "1.3rem" }} />
+              </Button>
+              <Button id="del-btn" onClick={() => setIsDelete(true)} variant="outlined">
+                <DeleteOutlineIcon style={{ fontSize: "1.3rem" }} />
+              </Button>
+            </div>
+          </div>
+          
+          <div className="rev-content-ad">
+            <div className="rev-icon-star">
+              <AccountCircleIcon />
+              <Rating
+                name="read-only"
+                value={3}
+                readOnly
+                style={{ color: "green" }}
+              />
+            </div>
+            <div className="rev-cust-cont1-ad">
+              <span style={{fontWeight:"bold", fontSize:"12px", marginRight:"5px"}}>Maikon Lima</span>
+              <span style={{fontSize:"12px", marginRight:"5px"}}>reviewed</span>
+              <span style={{fontWeight:"bold", fontSize:"12px", marginRight:"5px"}}>Freecash.com</span>
+            </div>
+            <div className="rev-content1-ad">
+              <p style={{fontSize:"14px"}}>
+                "Freecash really does provide opportunities for us to make extra
+                income. And you really get paid, i hope it stays that ways!"
+              </p>
+            </div>
+            <div>
+              <Button id="add-btn" 
+              onClick={() => setIsUpdate(true)}
+              variant="outlined"
+              >
+                <AddLinkIcon style={{ fontSize: "1.3rem" }} />
+              </Button>
+              <Button id="del-btn" onClick={() => setIsDelete(true)} variant="outlined">
+                <DeleteOutlineIcon style={{ fontSize: "1.3rem" }} />
+              </Button>
+            </div>
+          </div>
+          
+          <div className="rev-content-ad">
+            <div className="rev-icon-star">
+              <AccountCircleIcon />
+              <Rating
+                name="read-only"
+                value={3}
+                readOnly
+                style={{ color: "green" }}
+              />
+            </div>
+            <div className="rev-cust-cont1-ad">
+              <span style={{fontWeight:"bold", fontSize:"12px", marginRight:"5px"}}>Maikon Lima</span>
+              <span style={{fontSize:"12px", marginRight:"5px"}}>reviewed</span>
+              <span style={{fontWeight:"bold", fontSize:"12px", marginRight:"5px"}}>Freecash.com</span>
+            </div>
+            <div className="rev-content1-ad">
+              <p style={{fontSize:"14px"}}>
+                "Freecash really does provide opportunities for us to make extra
+                income. And you really get paid, i hope it stays that ways!"
+              </p>
+            </div>
+            <div>
+              <Button id="add-btn" 
+              onClick={() => setIsUpdate(true)}
+              variant="outlined"
+              >
+                <AddLinkIcon style={{ fontSize: "1.3rem" }} />
+              </Button>
+              <Button id="del-btn" onClick={() => setIsDelete(true)} variant="outlined">
                 <DeleteOutlineIcon style={{ fontSize: "1.3rem" }} />
               </Button>
             </div>
           </div>
         </div>
       </div>
+
+
+
+
+
+
 
       {/* delete Dialog */}
       <Dialog
@@ -100,12 +277,12 @@ const Admin = () => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box className="dialog-box-ad">
+        <Box className="dialog-box-ad" style={{width:"380px", height:"160px", paddingTop:"25px"}}>
           <div className="main-div-dialog-ad">
-            <Typography style={{ marginBottom: "25px", fontSize: "1.3rem" }}>
+            <Typography style={{ marginBottom: "25px", fontSize: "1.3rem", textAlign:"center" }}>
               Are you sure, you want to delete ?
             </Typography>
-            <div>
+            <div style={{textAlign:"center"}}>
               <Button
                 onClick={handleCloseDeleteBox}
                 variant="outlined"
@@ -137,12 +314,12 @@ const Admin = () => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box className="dialog-box-ad">
+        <Box className="dialog-box-ad" style={{width:"380px", height:"160px", paddingTop:"25px"}}>
           <div className="main-div-dialog-ad">
-            <Typography style={{ marginBottom: "25px", fontSize: "1.3rem" }}>
+            <Typography style={{ marginBottom: "25px", fontSize: "1.3rem", textAlign:"center" }}>
               Are you sure, you want to update ?
             </Typography>
-            <div>
+            <div style={{textAlign:"center"}}>
               <Button
                 onClick={handleCloseUpdateBox}
                 variant="outlined"
@@ -176,11 +353,10 @@ const Admin = () => {
       >
         <Box
           style={{
-            width: "350px",
+            width: "380px",
             height: "400px",
-            padding: "10px",
+            padding: "10px 28px 10px",
             textAlign: "center",
-            paddingTop: "15px",
           }}
         >
           <div className="main-div-dialog">
@@ -268,12 +444,12 @@ const Admin = () => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box className="dialog-box-ad">
+        <Box className="dialog-box-ad" style={{width:"380px", height:"160px", paddingTop:"25px" }}>
           <div className="main-div-dialog-ad">
-            <Typography style={{ marginBottom: "25px", fontSize: "1.3rem" }}>
+            <Typography style={{ marginBottom: "25px", fontSize: "1.3rem", textAlign:"center" }}>
               Are you sure, you want to delete ?
             </Typography>
-            <div>
+            <div style={{textAlign:"center"}}>
               <Button
                 // onClick={handleCloseLogoutBox}
                 variant="outlined"

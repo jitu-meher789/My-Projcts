@@ -20,6 +20,7 @@
   padding: 15px;
   position: relative;
   justify-content: center;
+  min-height: 478px;
 }
 
 .rev-content {
@@ -29,6 +30,7 @@
   padding: 15px;
   border-radius: 10px;
   border: 1px solid #e2e2e2;
+  max-height: 170px;
 }
 
 .rev-content1 {
