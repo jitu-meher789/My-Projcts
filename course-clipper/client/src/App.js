@@ -10,6 +10,7 @@ import Comparison from "./Pages/Components/Comparison/Comparison";
 import Privacy from "./Pages/Components/Privacy/Privacy";
 import Term from "./Pages/Components/Term/Term";
 import About from "./Pages/Components/About/About";
+import Admin from "./Pages/Components/Admin/Admin";
 
 function App() {
 
@@ -46,6 +47,10 @@ function App() {
       path: "/about",
       element: <About />,
     },
+    {
+      path: "/admin",
+      element: <Admin/>
+    }
   ]);
 
   return (
