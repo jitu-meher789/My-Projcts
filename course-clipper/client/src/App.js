@@ -11,6 +11,8 @@ import Privacy from "./Pages/Components/Privacy/Privacy";
 import Term from "./Pages/Components/Term/Term";
 import About from "./Pages/Components/About/About";
 import Admin from "./Pages/Components/Admin/Admin";
+import SingUp from "./Pages/SignUp";
+import SignIn from "./Pages/SignIn";
 
 function App() {
 
@@ -50,6 +52,14 @@ function App() {
     {
       path: "/admin",
       element: <Admin/>
+    },
+    {
+      path: "/signup",
+      element: <SingUp/>
+    },
+    {
+      path: "/signin",
+      element: <SignIn/>
     }
   ]);
 

@@ -18,7 +18,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 23rem;
+  gap: 55rem;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -31,6 +31,7 @@ body {
 .logo-section {
   font-size: 2.6rem;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .home-top-bar-section.button-section > #navbar-rev {
@@ -38,6 +39,7 @@ body {
   border: 3px solid gray;
   color: gray;
   border-radius: 10px;
+  font-weight: bold;
 }
 
 /* #0BB980 */

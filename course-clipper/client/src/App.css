@@ -67,3 +67,6 @@ body {
     transform: rotate(360deg);
   }
 }
+.blah .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+  height: 5px;
+}

@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Axios from 'axios';
 import "../Comparison/Comparison.css";
-
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import Rating from "@mui/material/Rating";
 import Navbar from "../../Navbar";
 
@@ -15,7 +15,40 @@ const style = {
   bgcolor: "background.paper",
 };
 const Comparison = () => {
-  const [value, setValue] = React.useState(2);
+
+  const [reviews, setReviews] = useState([]);
+  const [searchKeyword, setSearchKeyword] = useState("");
+  const [selectedCourse, setSelectedCourse] = useState("");
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      let course_name = selectedCourse || searchKeyword; 
+
+      try {
+        const response = await Axios.get("http://localhost:3001/reviews", {
+          params: {
+            courseName: course_name,
+          },
+        });
+        setReviews(response.data);
+      } catch (error) {
+        console.error('Error fetching reviews:', error);
+      }
+    };
+
+    fetchReviews();
+  }, [selectedCourse,searchKeyword]);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const searchValue = document.querySelector('input[name="searchInput"]').value;
+    setSearchKeyword(searchValue);
+  };
+  const handleCourseClick = (courseName) => {
+    setSelectedCourse(courseName);
+  };
+
+
   return (
     <>
       <Navbar />
@@ -26,12 +59,12 @@ const Comparison = () => {
               <form
                 className="example"
                 action=""
-                style={{ maxWidth: "320px" }}
+                style={{ maxWidth: "380px" }}
               >
-                <input type="text" placeholder="Search Course..." name="search2"  style={{paddingLeft:"15px"}}/>
-                {/* <button type="submit">
+                <input type="text" placeholder="Search Course.." name="searchInput" />
+                <button type="button" onClick={handleSearch}>
                   Search
-                </button> */}
+                </button>
               </form>
             </div>
             <div style={{ color: "black", fontSize: "1.2rem", marginTop: "2rem", marginBottom: "0.5rem", fontWeight: "600" }}>
@@ -39,88 +72,42 @@ const Comparison = () => {
             </div>
             <div style={{ width: "20rem" }}>
               <List sx={style} component="nav" aria-label="mailbox folders">
-
-
-                <ListItem className="comparion-list-btn12" button>
+                <ListItem className="list-itm-g56" button onClick={() => handleCourseClick("Web Development")}>
                   <ListItemText primary="Web Development" />
                 </ListItem>
-
-
-
                 <Divider />
-
-
-                <ListItem button divider className="comparion-list-btn12">
+                <ListItem className="list-itm-g56" button divider onClick={() => handleCourseClick("Data Science")}>
                   <ListItemText primary="Data Science" />
                 </ListItem>
-
-
-
-                <ListItem button className="comparion-list-btn12">
+                <ListItem className="list-itm-g56" button onClick={() => handleCourseClick("Mobile Development")}>
                   <ListItemText primary="Mobile Development" />
                 </ListItem>
-
-
-
                 <Divider light />
-
-
-
-                <ListItem button className="comparion-list-btn12">
+                <ListItem className="list-itm-g56" button onClick={() => handleCourseClick("Programming Languages")}>
                   <ListItemText primary="Programming Languages" />
                 </ListItem>
-
-
-
                 <Divider light />
-
-
-
-                <ListItem button className="comparion-list-btn12">
+                <ListItem className="list-itm-g56" button onClick={() => handleCourseClick("Game Development")}>
                   <ListItemText primary="Game Development" />
                 </ListItem>
-
-
-
                 <Divider />
-
-
-
-                <ListItem button divider className="comparion-list-btn12">
-                  <ListItemText 
-                  primary="Database Design & Developement" />
+                <ListItem className="list-itm-g56" button divider onClick={() => handleCourseClick("Database Design & Development")}>
+                  <ListItemText primary="Database Design & Developement" />
                 </ListItem>
-
-
-
-                <ListItem button className="comparion-list-btn12">
+                <ListItem className="list-itm-g56" button onClick={() => handleCourseClick("Software Testing")}>
                   <ListItemText primary="Software Testing" />
                 </ListItem>
-
-
-
                 <Divider light />
-
-
-
-                <ListItem button className="comparion-list-btn12">
+                <ListItem className="list-itm-g56" button onClick={() => handleCourseClick("Software Engineering")}>
                   <ListItemText primary="Software Engineering" />
                 </ListItem>
-
                 <Divider />
-
-
-
-                <ListItem button divider className="comparion-list-btn12">
+                <ListItem className="list-itm-g56" button divider onClick={() => handleCourseClick("Software Development Tools")}>
                   <ListItemText primary="Software Development Tools" />
                 </ListItem>
-
-
-
-                <ListItem button className="comparion-list-btn12">
+                <ListItem className="list-itm-g56" button onClick={() => handleCourseClick("No-Code Development")}>
                   <ListItemText primary="No-Code Development" />
                 </ListItem>
-
               </List>
             </div>
           </div>
@@ -132,95 +119,41 @@ const Comparison = () => {
             <p>Compare the best course</p>
           </div>
           <div className="comp-reviews-cont">
-            <div className="each-reviews">
-              <div className="cust-img232"><img src="https://play-lh.googleusercontent.com/dsCkmJE2Fa8IjyXERAcwc5YeQ8_NvbZ4_OI8LgqyjILpXUfS5YhEcnAMajKPrZI-og" alt="" /></div>
-              <div className="cust-reviews232">
-                <div className="cust-rev-course">Javascript</div>
-                <div className="cust-rev-reviews549">
-                  <span><Rating name="read-only" value={3} readOnly style={{ color: "green" }} /></span>
-                  <span style={{ fontWeight: "600" }}>TrustScores 4.0</span>
-                  <span>3,302 reviews</span>
+            {reviews.map((review, index) => (
+              // <div className="each-reviews" key={`${index}-${review.courseName}`}>
+              //   <div className="cust-img232"><img src="https://play-lh.googleusercontent.com/dsCkmJE2Fa8IjyXERAcwc5YeQ8_NvbZ4_OI8LgqyjILpXUfS5YhEcnAMajKPrZI-og" alt="" /></div>
+              //   <div className="cust-reviews232">
+              //     <div className="cust-rev-course">{review.courseName}</div>
+              //     <div className="cust-rev-reviews549">
+              //       <span><Rating name="read-only" value={review.Rating} readOnly style={{ color: "green" }} /></span>
+              //       <span style={{ fontWeight: "600" }}>TrustScores 4.0</span>
+              //       {/* <span>3,302 reviews</span> */}
+              //     </div>
+              //   </div>
+              // </div>
+
+              <div className="rev-content" style={{ width: "100%" }} key={`${index}-${review.courseName}`}>
+                <div className="rev-icon-star">
+                  <AccountCircleIcon />
+                  <Rating
+                    name="read-only"
+                    value={review.Rating}
+                    readOnly
+                    style={{ color: "green" }}
+                  />
+                </div>
+                <div className="rev-cust-cont1">
+                  <span>{review.username}</span>
+                  <span>reviewed</span>
+                  <span>{review.platformName}</span>
+                </div>
+                <div className="rev-content1">
+                  <p>
+                    {review.courseDescription}
+                  </p>
                 </div>
               </div>
-            </div>
-
-
-            <div className="each-reviews">
-              <div className="cust-img232"><img src="https://play-lh.googleusercontent.com/dsCkmJE2Fa8IjyXERAcwc5YeQ8_NvbZ4_OI8LgqyjILpXUfS5YhEcnAMajKPrZI-og" alt="" /></div>
-              <div className="cust-reviews232">
-                <div className="cust-rev-course">Javascript-mastry course</div>
-                <div className="cust-rev-reviews549">
-                  <span><Rating name="read-only" value={3} readOnly style={{ color: "green" }} /></span>
-                  <span style={{ fontWeight: "600" }}>TrustScores 4.0</span>
-                  <span>3,302 reviews</span>
-                </div>
-              </div>
-            </div>
-
-
-            <div className="each-reviews">
-              <div className="cust-img232"><img src="https://play-lh.googleusercontent.com/dsCkmJE2Fa8IjyXERAcwc5YeQ8_NvbZ4_OI8LgqyjILpXUfS5YhEcnAMajKPrZI-og" alt="" /></div>
-              <div className="cust-reviews232">
-                <div className="cust-rev-course">Javascript</div>
-                <div className="cust-rev-reviews549">
-                  <span><Rating name="read-only" value={3} readOnly style={{ color: "green" }} /></span>
-                  <span style={{ fontWeight: "600" }}>TrustScores 4.0</span>
-                  <span>3,302 reviews</span>
-                </div>
-              </div>
-            </div>
-
-
-            <div className="each-reviews">
-              <div className="cust-img232"><img src="https://play-lh.googleusercontent.com/dsCkmJE2Fa8IjyXERAcwc5YeQ8_NvbZ4_OI8LgqyjILpXUfS5YhEcnAMajKPrZI-og" alt="" /></div>
-              <div className="cust-reviews232">
-                <div className="cust-rev-course">Javascript</div>
-                <div className="cust-rev-reviews549">
-                  <span><Rating name="read-only" value={3} readOnly style={{ color: "green" }} /></span>
-                  <span style={{ fontWeight: "600" }}>TrustScores 4.0</span>
-                  <span>3,302 reviews</span>
-                </div>
-              </div>
-            </div>
-
-
-            <div className="each-reviews">
-              <div className="cust-img232"><img src="https://play-lh.googleusercontent.com/dsCkmJE2Fa8IjyXERAcwc5YeQ8_NvbZ4_OI8LgqyjILpXUfS5YhEcnAMajKPrZI-og" alt="" /></div>
-              <div className="cust-reviews232">
-                <div className="cust-rev-course">Javascript</div>
-                <div className="cust-rev-reviews549">
-                  <span><Rating name="read-only" value={3} readOnly style={{ color: "green" }} /></span>
-                  <span style={{ fontWeight: "600" }}>TrustScores 4.0</span>
-                  <span>3,302 reviews</span>
-                </div>
-              </div>
-            </div>
-
-
-            <div className="each-reviews">
-              <div className="cust-img232"><img src="https://play-lh.googleusercontent.com/dsCkmJE2Fa8IjyXERAcwc5YeQ8_NvbZ4_OI8LgqyjILpXUfS5YhEcnAMajKPrZI-og" alt="" /></div>
-              <div className="cust-reviews232">
-                <div className="cust-rev-course">Javascript</div>
-                <div className="cust-rev-reviews549">
-                  <span><Rating name="read-only" value={3} readOnly style={{ color: "green" }} /></span>
-                  <span style={{ fontWeight: "600" }}>TrustScores 4.0</span>
-                  <span>3,302 reviews</span>
-                </div>
-              </div>
-            </div>
-
-
-            <div className="each-reviews">
-              <div className="cust-img232"><img src="https://play-lh.googleusercontent.com/dsCkmJE2Fa8IjyXERAcwc5YeQ8_NvbZ4_OI8LgqyjILpXUfS5YhEcnAMajKPrZI-og" alt="" /></div>
-              <div className="cust-reviews232">
-                <div className="cust-rev-course">Javascript</div>
-                <div className="cust-rev-reviews549">
-                  <span><Rating name="read-only" value={3} readOnly style={{ color: "green" }} /></span>
-                  <span style={{ fontWeight: "600" }}>TrustScores 4.0</span>
-                  <span>3,302 reviews</span>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

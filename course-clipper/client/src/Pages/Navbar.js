@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate } from "react-router";
+import { useForm, Controller } from 'react-hook-form';
 
 import { Drawer, Box } from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 
 import List from "@mui/material/List";
+import TextField from "@mui/material/TextField"
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -17,8 +19,6 @@ import MailIcon from "@mui/icons-material/Mail";
 
 import Dialog from "@mui/material/Dialog";
 import Rating from "@mui/material/Rating";
-
-import { useForm, Controller } from "react-hook-form";
 import Axios from "axios";
 
 function Navbar() {
@@ -32,6 +32,16 @@ function Navbar() {
   const handleClose = () => setDialogOpen(false);
   const handleOpenLogin = () => setLoginOpen(true);
   const handleCloseLogin = () => setLoginOpen(false);
+
+  const { handleSubmit: handleSubmitAdmin, control: controlAdmin } = useForm();
+
+  const customSubmitFunction = (data) => {
+    console.log(data);
+    if (data.username === "xtzt092@#14pqnz" && data.password === "478420478457") {
+      localStorage.setItem("AdminCondition", "true");
+      navigate("/admin");
+    }
+  };
 
   const test = [
     {
@@ -47,7 +57,7 @@ function Navbar() {
       routeName: "/review",
     },
     {
-      route: "Comparison",
+      route: "Compare Course",
       routeName: "/comparison",
     },
     {
@@ -115,6 +125,19 @@ function Navbar() {
           Admin Login
         </Button>
       </Box>
+      
+      <Box style={{ marginTop: "10px", width: "230px" }}>
+        <Button
+          style={{
+            fontSize: "10px",
+            color: "white",
+            backgroundColor: "red",
+          }}
+          // onClick={}
+        >
+          Sign Up
+        </Button>
+      </Box>
     </Box>
   );
 
@@ -145,12 +168,12 @@ function Navbar() {
       </button>
 
       <div className="home-top-bar-section button-section">
-        <input
+        {/* <input
           type="text"
           id="navbar-search-box"
           style={{ paddingLeft: "17px" }}
           placeholder="Search Course..."
-        />
+        /> */}
         <Button
           id="navbar-rev"
           variant="outlined"
@@ -391,29 +414,45 @@ function Navbar() {
           className="login-dialog"
           style={{ width: "350px", height: "300px" }}
         >
-          <form action="">
+          <form onSubmit={handleSubmitAdmin(customSubmitFunction)}>
             <div className="main-lgn">
               <div className="login-text">Login Form</div>
-              <div className="input-1-box">
+              <div className="input-1-box" >
                 <label htmlFor="username">Username</label>
-                <input
-                  type="text"
-                  id="username"
-                  placeholder="Enter Your Username"
+                <Controller
+                  name="username"
+                  control={controlAdmin}
+                  defaultValue=""
+                  render={({ field }) => (
+                    <TextField
+                      {...field}
+                      type="text"
+                      id="username"
+                      className="blah"
+                      placeholder="Enter Your Username"
+                    />
+                  )}
                 />
               </div>
               <div className="input-2-box">
-                <label htmlFor="username">Password</label>
-                <input
-                  type="password"
-                  id="username"
-                  placeholder="Enter Your Password"
+                <label htmlFor="password">Password</label>
+                <Controller
+                  name="password"
+                  control={controlAdmin}
+                  defaultValue=""
+                  render={({ field }) => (
+                    <TextField
+                      {...field}
+                      type="password"
+                      id="password"
+                      className="blah"
+                      placeholder="Enter Your Password"
+                    />
+                  )}
                 />
               </div>
               <div className="lgn-btn">
-                <Button onClick={handleCloseLogin} type="submit">
-                  Login
-                </Button>
+                <Button type="submit">Login</Button>
               </div>
             </div>
           </form>

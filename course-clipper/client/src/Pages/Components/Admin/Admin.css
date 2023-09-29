@@ -38,16 +38,17 @@
     padding: 10px;
     border: 1px solid rgb(202, 199, 199);
     max-height: 185px;
-    
+
 }
 
-#del-btn  {
+#del-btn {
     /* background-color: red; */
     color: red;
     width: 15px;
     border-color: rgb(195, 186, 186);
 
 }
+
 #add-btn {
     /* background-color: #0bb980; */
     color: #0bb980;
@@ -65,13 +66,15 @@
     text-align: center;
 
 }
+
 .log-btn-dv Button {
     font-size: 10px;
     text-align: center;
     color: white;
 }
+
 .adm-text-div {
-    background-color:#0bb980;
+    background-color: #0bb980;
 }
 
 .adm-date-div {
@@ -88,5 +91,5 @@ input[type=date] {
 }
 
 .panel-div:first-child {
-    align-self: flex-end; 
-  }
+    align-self: flex-end;
+}

@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: row;
   padding: 0px 0px 0px 3rem;
+  min-height: 572px;
 }
 
 .comp-left-cont {
@@ -27,7 +28,7 @@ form.example input[type="text"] {
   font-size: 17px;
   border: 1px solid grey;
   float: left;
-  width: 100%;
+  width: 75%;
   background: #FFFFFF;
   border-radius: 23px;
   margin-right: 5px;
@@ -120,4 +121,8 @@ form.example::after {
 
 .comparion-list-btn12 {
   height: 2.5rem;
+}
+
+.list-itm-g56 {
+  height: 41px;
 }

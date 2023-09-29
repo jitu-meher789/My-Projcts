@@ -27,10 +27,11 @@
   margin-top: 10px;
   background-color: #ffff;
   width: 18rem;
-  padding: 15px;
+  padding: 0px 15px 15px 15px;
   border-radius: 10px;
   border: 1px solid #e2e2e2;
   max-height: 170px;
+  cursor: pointer;
 }
 
 .rev-content1 {
@@ -53,4 +54,27 @@
 .rev-cust-cont1 span:nth-child(3) {
   font-size: 12px;
   font-weight: bold;
+}
+
+/* Add this to your Reviews.css file or equivalent */
+.rev-content {
+  border: 1px solid #ccc;
+  /* Add a border for the content box */
+  /* padding: 15px; */
+  position: relative;
+  max-width: 400px;
+  /* Adjust the maximum width as needed */
+  margin-bottom: 20px;
+  /* Add some margin between content boxes */
+}
+
+.rev-time {
+  /* Styles for the date element */
+  position: absolute;
+  bottom: 10px;
+  /* Adjust the distance from the bottom */
+  right: 10px;
+  /* Adjust the distance from the right */
+  font-size: 12px;
+  color: #888;
 }
