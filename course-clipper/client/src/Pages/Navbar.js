@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate } from "react-router";
-import { useForm, Controller } from 'react-hook-form';
+import { useForm, Controller } from "react-hook-form";
 
 import { Drawer, Box } from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 
 import List from "@mui/material/List";
-import TextField from "@mui/material/TextField"
+import TextField from "@mui/material/TextField";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -37,7 +37,10 @@ function Navbar() {
 
   const customSubmitFunction = (data) => {
     console.log(data);
-    if (data.username === "xtzt092@#14pqnz" && data.password === "478420478457") {
+    if (
+      data.username === "xtzt092@#14pqnz" &&
+      data.password === "478420478457"
+    ) {
       localStorage.setItem("AdminCondition", "true");
       navigate("/admin");
     }
@@ -119,19 +122,26 @@ function Navbar() {
             fontSize: "10px",
             color: "white",
             backgroundColor: "red",
+            width: "10rem",
+            textTransform: "capitalize",
+            fontSize: "0.8rem",
           }}
           onClick={handleOpenLogin}
         >
           Admin Login
         </Button>
       </Box>
-      
+
       <Box style={{ marginTop: "10px", width: "230px" }}>
         <Button
+          variant="contained"
           style={{
             fontSize: "10px",
-            color: "white",
-            backgroundColor: "red",
+            // color: "white",
+            // backgroundColor: "red",
+            width: "10rem",
+            textTransform: "capitalize",
+            fontSize: "0.8rem",
           }}
           // onClick={}
         >
@@ -255,7 +265,7 @@ function Navbar() {
 
               <div className="dialog-sub-box">
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <label htmlFor="course-name">Enter Your Name</label>
+                  <label htmlFor="your-name">Enter Your Name</label>
                   <Controller
                     name="username"
                     control={control}
@@ -264,7 +274,7 @@ function Navbar() {
                       <input
                         {...field}
                         type="text"
-                        id="course-name"
+                        id="your-name"
                         style={{
                           width: "325px",
                           height: "35px",
@@ -277,7 +287,7 @@ function Navbar() {
                 </div>
 
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <label htmlFor="course-name">Enter Your Email Id</label>
+                  <label htmlFor="email">Enter Your Email Id</label>
                   <Controller
                     name="emailId"
                     control={control}
@@ -286,7 +296,7 @@ function Navbar() {
                       <input
                         {...field}
                         type="email"
-                        id="course-name"
+                        id="email"
                         style={{
                           width: "325px",
                           height: "35px",
@@ -321,23 +331,94 @@ function Navbar() {
                 </div>
 
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <label htmlFor="platform-name">Give your platform name</label>
+                  <label htmlFor="platform-name">
+                    Select your platform name
+                  </label>
                   <Controller
                     name="platformName"
                     control={control}
                     defaultValue=""
                     render={({ field }) => (
-                      <input
+                      // <input
+                      //   {...field}
+                      //   type="text"
+                      //   id="platform-name"
+                      // style={{
+                      //   width: "325px",
+                      //   height: "35px",
+                      //   borderRadius: "5px",
+                      //   border: "1px solid grey",
+                      // }}
+                      // />
+
+                      <select
                         {...field}
-                        type="text"
                         id="platform-name"
                         style={{
                           width: "325px",
                           height: "35px",
                           borderRadius: "5px",
                           border: "1px solid grey",
+                          fontSize:"15px"
                         }}
-                      />
+                      >
+                        <option value="Udemy">Udemy</option>
+                        <option value="Pluralsight">Pluralsight</option>
+                        <option value="Coursera">Coursera</option>
+                        <option value="Skillshare">Skillshare</option>
+                        <option value="Udacity">Udacity</option>
+                        <option value="Codeacademy">Codeacademy</option>
+                        <option value="Khanacademy">Khanacademy</option>
+                        <option value="Sololearn">Sololearn</option>
+
+                        <option value="Others">Others</option>
+                      </select>
+                    )}
+                  />
+                </div>
+
+
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <label htmlFor="catagory-name">
+                    Select your course catagory
+                  </label>
+                  <Controller
+                    name="catagoryName"
+                    control={control}
+                    defaultValue=""
+                    render={({ field }) => (
+                      // <input
+                      //   {...field}
+                      //   type="text"
+                      //   id="platform-name"
+                      // style={{
+                      //   width: "325px",
+                      //   height: "35px",
+                      //   borderRadius: "5px",
+                      //   border: "1px solid grey",
+                      // }}
+                      // />
+
+                      <select
+                        {...field}
+                        id="catagory-name"
+                        style={{
+                          width: "325px",
+                          height: "35px",
+                          borderRadius: "5px",
+                          border: "1px solid grey",
+                          fontSize:"15px"
+                        }}
+                      >
+                        <option value="Web Development">Web Development</option>
+                        <option value="Data Science">Data Science</option>
+                        <option value="Mobile Development">Mobile Development</option>
+                        <option value="Programming Languages">Programming Languages</option>
+                        <option value="Game Development">Game Development</option>
+                        <option value="Software Development Tools">Software Development Tools</option>
+                        <option value="Game Development">Game Development</option>
+                        <option value="Others">Others</option>
+                      </select>
                     )}
                   />
                 </div>
@@ -417,7 +498,7 @@ function Navbar() {
           <form onSubmit={handleSubmitAdmin(customSubmitFunction)}>
             <div className="main-lgn">
               <div className="login-text">Login Form</div>
-              <div className="input-1-box" >
+              <div className="input-1-box">
                 <label htmlFor="username">Username</label>
                 <Controller
                   name="username"
@@ -429,6 +510,7 @@ function Navbar() {
                       type="text"
                       id="username"
                       className="blah"
+                      required
                       placeholder="Enter Your Username"
                     />
                   )}
@@ -446,6 +528,7 @@ function Navbar() {
                       type="password"
                       id="password"
                       className="blah"
+                      required
                       placeholder="Enter Your Password"
                     />
                   )}

@@ -13,7 +13,7 @@
 }
 
 .comp-right-cont {
-  width: 50%;
+  width: 65%;
   position: relative;
   left: 30rem;
 }
@@ -29,7 +29,7 @@ form.example input[type="text"] {
   border: 1px solid grey;
   float: left;
   width: 75%;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 23px;
   margin-right: 5px;
 }
@@ -73,6 +73,9 @@ form.example::after {
   /* background-color: red; */
   /* height: 100%; */
   margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .each-reviews {
@@ -125,4 +128,9 @@ form.example::after {
 
 .list-itm-g56 {
   height: 41px;
+}
+
+.rev-content1 p{
+  inline-size: 270px;
+  overflow-wrap: break-word;
 }

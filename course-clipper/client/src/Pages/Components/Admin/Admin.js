@@ -10,11 +10,12 @@ import AddLinkIcon from "@mui/icons-material/AddLink";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import DeleteIcon from "@mui/icons-material/Delete";
 import Rating from "@mui/material/Rating";
 import Dialog from "@mui/material/Dialog";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { useForm, Controller } from 'react-hook-form';
+import { useForm, Controller } from "react-hook-form";
 
 import { useNavigate } from "react-router";
 
@@ -24,6 +25,8 @@ const Admin = () => {
   const [isDelete, setIsDelete] = React.useState(false);
   const handleOpenDeleteBox = () => setIsDelete(true);
   const handleCloseDeleteBox = () => setIsDelete(false);
+
+
 
   const [isUpdate, setIsUpdate] = React.useState(false);
   const handleOpenUpdateBox = () => setIsUpdate(true);
@@ -37,13 +40,6 @@ const Admin = () => {
     setIsUpdate(false);
   };
 
-
-
-  // const [isLogout, setIsLogOut] = React.useState(false);
-  // const handleOpenLogoutBox = setIsLogOut(true);
-  // const handleCloseLogoutBox = setIsLogOut(false);
-
-
   const [ratingValue, setRatingValue] = React.useState(2);
 
   const [review, setReview] = useState([]);
@@ -51,7 +47,7 @@ const Admin = () => {
     if (localStorage.getItem("AdminCondition") === "true") {
       Axios.get("http://localhost:3001/reviews").then((response) => {
         setReview(response.data);
-      },)
+      });
     } else {
       navigate("/");
     }
@@ -60,12 +56,14 @@ const Admin = () => {
   const [id, setId] = useState();
   const handleDeleteClick = () => {
     handleCloseDeleteBox();
-    Axios.post("http://localhost:3001/adminDelete", { Id: id }).then((response) => {
-      console.log(response);
-    }).catch((error) => {
-      console.log(error);
-    })
-  }
+    Axios.post("http://localhost:3001/adminDelete", { Id: id })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const [a, setA] = useState([]);
 
@@ -75,23 +73,25 @@ const Admin = () => {
     const filteredReview = review.filter((item) => {
       return item._id === id;
     });
-    console.log(filteredReview)
+    console.log(filteredReview);
     setA(filteredReview);
     // console.log(a);
-  }
+  };
 
   const { control, handleSubmit, reset } = useForm();
   const updateSubmit = (data) => {
     data.id = a[0]._id;
     console.log(data);
-    Axios.post(`http://localhost:3001/updateLink`, data).then((response) => {
-      console.log(response);
-    }).catch((error) => {
-      console.log(error);
-    })
+    Axios.post(`http://localhost:3001/updateLink`, data)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     setIsUpdateForm(false);
     setIsUpdate(false);
-  }
+  };
 
   const [selectedDate, setSelectedDate] = useState("");
   const filteredReviews = review.filter((item) => {
@@ -119,7 +119,7 @@ const Admin = () => {
   const handleLogoutClick = () => {
     localStorage.setItem("AdminCondition", "false");
     navigate("/");
-  }
+  };
 
   return (
     <>
@@ -127,7 +127,7 @@ const Admin = () => {
         <div className="panel-div">
           <div className="log-btn-dv">
             {" "}
-            <Button onClick={handleLogoutClick} >LOGOUT</Button>
+            <Button onClick={handleLogoutClick}>LOGOUT</Button>
             {/* onClick={() => setIsLogOut(true)} */}
           </div>
           <div className="adm-text-div">
@@ -135,55 +135,92 @@ const Admin = () => {
           </div>
           <div className="adm-date-div">
             <input
-              type="date"
+              type="Date"
               // value={selectedDate.toISOString().split("T")[0]}
-              onChange={(event) => setSelectedDate(new Date(event.target.value))}
+              onChange={(event) =>
+                setSelectedDate(new Date(event.target.value))
+              }
             />
           </div>
         </div>
         <Divider style={{ marginTop: "15px" }} />
-        <div className="rev-admin-div">
-          {filteredReviews.map((item) => {
-            return (
-              <div className="rev-content-ad">
-                <div className="rev-icon-star">
-                  <AccountCircleIcon />
-                  <Rating
-                    name="read-only"
-                    value={item.Rating}
-                    readOnly
-                    style={{ color: "green" }}
-                  />
+
+        <div style={{ display: "flex" }}>
+          <div className="rev-admin-div">
+            {filteredReviews.map((item) => {
+              return (
+                <div className="rev-content-ad">
+                  <div className="rev-icon-star">
+                    <AccountCircleIcon />
+                    <Rating
+                      name="read-only"
+                      value={item.Rating}
+                      readOnly
+                      style={{ color: "green" }}
+                    />
+                  </div>
+                  <div className="rev-cust-cont1-ad">
+                    <span
+                      style={{
+                        fontWeight: "bold",
+                        fontSize: "12px",
+                        marginRight: "5px",
+                      }}
+                    >
+                      {item.username}
+                    </span>
+                    <span style={{ fontSize: "12px", marginRight: "5px" }}>
+                      reviewed
+                    </span>
+                    <span
+                      style={{
+                        fontWeight: "bold",
+                        fontSize: "12px",
+                        marginRight: "5px",
+                      }}
+                    >
+                      {item.platformName}
+                    </span>
+                  </div>
+                  <div className="rev-content1-ad">
+                    <p
+                      style={{
+                        fontSize: "14px",
+                        inlineSize: "270px",
+                        overflowWrap: "break-word",
+                      }}
+                    >
+                      {item.courseDescription}
+                    </p>
+                  </div>
+                  <div>
+                    <Button
+                      id="add-btn"
+                      onClick={() => {
+                        handleConfirmUpdate(item._id);
+                      }}
+                      variant="outlined"
+                    >
+                      <AddLinkIcon style={{ fontSize: "1.3rem" }} />
+                    </Button>
+                    <Button
+                      id="del-btn"
+                      onClick={() => {
+                        setIsDelete(true);
+                        setId(item._id);
+                      }}
+                      variant="outlined"
+                    >
+                      <DeleteOutlineIcon style={{ fontSize: "1.3rem" }} />
+                    </Button>
+                  </div>
                 </div>
-                <div className="rev-cust-cont1-ad">
-                  <span style={{ fontWeight: "bold", fontSize: "12px", marginRight: "5px" }}>{item.username}</span>
-                  <span style={{ fontSize: "12px", marginRight: "5px" }}>reviewed</span>
-                  <span style={{ fontWeight: "bold", fontSize: "12px", marginRight: "5px" }}>{item.platformName}</span>
-                </div>
-                <div className="rev-content1-ad">
-                  <p style={{ fontSize: "14px" }}>
-                    {item.courseDescription}
-                  </p>
-                </div>
-                <div>
-                  <Button id="add-btn"
-                    onClick={() => { handleConfirmUpdate(item._id); }}
-                    variant="outlined"
-                  >
-                    <AddLinkIcon style={{ fontSize: "1.3rem" }} />
-                  </Button>
-                  <Button id="del-btn" onClick={() => { setIsDelete(true); setId(item._id) }} variant="outlined">
-                    <DeleteOutlineIcon style={{ fontSize: "1.3rem" }} />
-                  </Button>
-                </div>
-              </div>
-            )
-          })}
+              );
+            })}
+          </div>
+
         </div>
       </div>
-
-
-
 
       {/* delete Dialog */}
       <Dialog
@@ -192,9 +229,18 @@ const Admin = () => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box className="dialog-box-ad" style={{ width: "380px", height: "160px", paddingTop: "25px" }}>
+        <Box
+          className="dialog-box-ad"
+          style={{ width: "380px", height: "160px", paddingTop: "25px" }}
+        >
           <div className="main-div-dialog-ad">
-            <Typography style={{ marginBottom: "25px", fontSize: "1.3rem", textAlign: "center" }}>
+            <Typography
+              style={{
+                marginBottom: "25px",
+                fontSize: "1.3rem",
+                textAlign: "center",
+              }}
+            >
               Are you sure, you want to delete ?
             </Typography>
             <div style={{ textAlign: "center" }}>
@@ -211,7 +257,9 @@ const Admin = () => {
                 Cancel
               </Button>
               <Button
-                onClick={() => { handleDeleteClick(); }}
+                onClick={() => {
+                  handleDeleteClick();
+                }}
                 variant="contained"
                 sx={{ backgroundColor: "red", width: "50px" }}
               >
@@ -229,9 +277,18 @@ const Admin = () => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box className="dialog-box-ad" style={{ width: "380px", height: "160px", paddingTop: "25px" }}>
+        <Box
+          className="dialog-box-ad"
+          style={{ width: "380px", height: "160px", paddingTop: "25px" }}
+        >
           <div className="main-div-dialog-ad">
-            <Typography style={{ marginBottom: "25px", fontSize: "1.3rem", textAlign: "center" }}>
+            <Typography
+              style={{
+                marginBottom: "25px",
+                fontSize: "1.3rem",
+                textAlign: "center",
+              }}
+            >
               Are you sure, you want to update ?
             </Typography>
             <div style={{ textAlign: "center" }}>
@@ -396,7 +453,6 @@ const Admin = () => {
         </Box>
       </Dialog>
 
-
       {/* logout  Dialog*/}
       <Dialog
         // open={isLogout}
@@ -404,9 +460,18 @@ const Admin = () => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box className="dialog-box-ad" style={{ width: "380px", height: "160px", paddingTop: "25px" }}>
+        <Box
+          className="dialog-box-ad"
+          style={{ width: "380px", height: "160px", paddingTop: "25px" }}
+        >
           <div className="main-div-dialog-ad">
-            <Typography style={{ marginBottom: "25px", fontSize: "1.3rem", textAlign: "center" }}>
+            <Typography
+              style={{
+                marginBottom: "25px",
+                fontSize: "1.3rem",
+                textAlign: "center",
+              }}
+            >
               Are you sure, you want to delete ?
             </Typography>
             <div style={{ textAlign: "center" }}>
@@ -433,6 +498,7 @@ const Admin = () => {
           </div>
         </Box>
       </Dialog>
+
 
     </>
   );

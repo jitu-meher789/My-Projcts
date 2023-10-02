@@ -14,6 +14,8 @@ import Admin from "./Pages/Components/Admin/Admin";
 import SingUp from "./Pages/SignUp";
 import SignIn from "./Pages/SignIn";
 
+import Catagory from "./Pages/Components/CatagoryAndPlatfomLogo/Catagory";
+
 function App() {
 
   const router = createBrowserRouter([
@@ -60,7 +62,12 @@ function App() {
     {
       path: "/signin",
       element: <SignIn/>
+    },
+    {
+      path: "/catagory",
+      element:<Catagory/>
     }
+
   ]);
 
   return (

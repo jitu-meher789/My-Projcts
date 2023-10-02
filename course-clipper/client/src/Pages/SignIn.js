@@ -118,9 +118,9 @@ export default function SignIn() {
                   fullWidth
                   variant="contained"
                   sx={{ mt: 3, mb: 1 }}
-                  style={{ width: "10rem" , textTransform:"capitalize"}}
+                  style={{ width: "15rem" , textTransform:"capitalize"}}
                 >
-                  Sign In <GoogleIcon  style={{marginLeft:"10px"}}/>
+                  Sign In with Google <GoogleIcon  style={{marginLeft:"10px"}}/>
                 </Button>
               </Grid>
             </Box>
